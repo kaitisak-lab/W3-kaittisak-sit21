@@ -11,7 +11,7 @@ class ApiService{
       final List data = jsonDecode(response.body);
       return data.map((e) => User.fromJson(e)).toList();
     }else{
-      throw Exception('โหลดข้อมูลไม่สำเร็จ');
+      throw Exception('โหลดข้อมูลไม่สำเร็จapi');
     }
   }
 

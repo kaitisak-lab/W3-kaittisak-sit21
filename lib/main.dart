@@ -40,14 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: FutureBuilder<List<User>>(
-        future: ApiService.fetchUser(),
+        future: ApiService.fetchUser(), //ให้ส่งข้อมูลมา
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
 
             return Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Center(child: Text('เกิดข้อผิดผลาด'));
+            return Center(child: Text('เกิดข้อผิดผลาดที่main'));
           }
 
           final users = snapshot.data!;
@@ -56,10 +56,10 @@ class _MyHomePageState extends State<MyHomePage> {
             itemCount: users.length,
             itemBuilder: (context, index) {
               final user = users[index];
-
+              // สร้างรายการแบบไดนามิกตามจำนวนผู้ใช้ที่มี โดยหยิบข้อมูลมาทีละตำแหน่ง (index) เพื่อนำไปแสดงผล
 
               return Container(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12), //แนวตั้ง|
                 margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -67,9 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
+                      spreadRadius: 2,//กว้าง
+                      blurRadius: 5,//ฟุ้ง
+                      offset: const Offset(0, 3),//ทิศ
                     ),
                   ],
                 ),

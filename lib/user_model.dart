@@ -27,6 +27,7 @@ class User{
       city: json['city'],
       birthdate: json['birthdate'],
         age: int.tryParse(json['age']?.toString() ?? '0') ?? 0,
+        //\ กันแอปพัง: แปลงค่า age ให้เป็น String ก่อนแล้วค่อย Parse เป็น int ถ้าไม่ได้ให้ใช้ 0
     );
   }
 
