@@ -16,7 +16,7 @@ class User{
     required this.age,
     required this.city,
     required this.birthdate,
-
+ // รอรับค่า
 });
 
   factory User.fromJson(Map<String ,dynamic> json){
